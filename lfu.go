@@ -84,7 +84,7 @@ func (dbl *dbList) removeTail() *dbNode {
 	return node
 }
 
-func initNode(k, v int) *dbNode {
+func initNode(k, v interface{}) *dbNode {
 	return &dbNode{
 		key:   k,
 		value: v,
@@ -159,7 +159,7 @@ func (lfu *LFUCache) Get(key interface{}) interface{} {
 	return -1
 }
 
-func (lfu *LFUCache) Put(key int, value int) {
+func (lfu *LFUCache) Put(key interface{}, value interface{}) {
 	if lfu.capacity == 0 {
 		return
 	}
@@ -229,3 +229,4 @@ func (lfu *LFUCache) GetAll() []interface{} {
 		curFreqNode = curFreqNode.next
 	}
 }
+
